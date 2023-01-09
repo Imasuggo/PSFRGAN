@@ -44,17 +44,20 @@ if __name__ == '__main__':
             save_path = os.path.join(save_dir, 'lq', os.path.basename(img_path[i]))
             os.makedirs(os.path.join(save_dir, 'lq'), exist_ok=True)
             save_img = Image.fromarray(inp_img[i])
-            save_img.save(save_path)
+            save_path = save_path.replace('jpg', 'png')
+            save_img.save(save_path, "PNG")
 
             save_path = os.path.join(save_dir, 'hq', os.path.basename(img_path[i]))
             os.makedirs(os.path.join(save_dir, 'hq'), exist_ok=True)
             save_img = Image.fromarray(output_sr_img[i])
-            save_img.save(save_path)
+            save_path = save_path.replace('jpg', 'png')
+            save_img.save(save_path, "PNG")
 
             save_path = os.path.join(save_dir, 'parse', os.path.basename(img_path[i]))
             os.makedirs(os.path.join(save_dir, 'parse'), exist_ok=True)
             save_img = Image.fromarray(ref_parse_img[i])
-            save_img.save(save_path)
+            save_path = save_path.replace('jpg', 'png')
+            save_img.save(save_path, "PNG")
 
         if i > max_size: break
 
